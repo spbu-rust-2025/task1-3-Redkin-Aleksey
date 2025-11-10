@@ -14,14 +14,12 @@ fn main() {
 
     match fs::File::open(file_path) {
         Ok(mut file) => {
-            let mut test = String::new();
-            match file.read_to_string(&mut test) {
+            let mut test = Vec::new();
+            match file.read_to_end(&mut test) {
                 Ok(_) => println!("success"),
                 Err(_) => println!("failure")
             }
         }
         Err(_) => println!("failure")
     }
-
 }
-
